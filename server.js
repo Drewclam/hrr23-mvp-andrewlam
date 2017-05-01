@@ -14,13 +14,13 @@ var port = 8080;
 
 
 
-app.use(express.static('public'));
+// app.use(express.static());
+// app.use(express.static('public'))
 
 // routes
-app.get('/', requestHandler.methods.get);
-// app.get('/index', );
+app.get('/get', requestHandler.methods.get);
 
 
 
 app.listen(port);
-console.log('app.js listening on port:' + port);
+console.log('server.js listening on port:' + port);
