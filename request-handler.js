@@ -1,4 +1,6 @@
 var https = require('https');
+var utils = require('./utils.js');
+
 var requestParams = {
   url: 'https://na.api.riotgames.com/api/lol/NA/v2.5/league/challenger',
   type: 'type=RANKED_SOLO_5x5',
@@ -14,7 +16,8 @@ var methods = {
         body += chunk;
       });
       result.on('end', function() {
-        res.end(body);
+        var parsed = utils.parseData(body);
+        res.end(parsed);
       });
     });
   }
