@@ -16,12 +16,14 @@ angular.module('mvp')
       var parsed = {};
       response.data.entries.forEach(function(entry) {
         var player = {};
+        player.name = entry.playerOrTeamName;
         player.leaguePoints = entry.leaguePoints;
         player.wins = entry.wins;
         player.losses = entry.losses;
         parsed[entry.playerOrTeamName] = player;
       });
       //
+      console.log('parsed data from getTierData', parsed);
       callback(parsed);
     }, function error(response) {
       console.log('error retrieving data');
