@@ -4,12 +4,10 @@
   <title>Drew's MVP</title>
   <script src="node_modules/angular/angular.js"></script>
   <script src="client/index.js"></script>
+  <script src="services/leagueData.js"></script>
   <script src="client/app.js"></script>
 </head>
 <body>
-  Before app directive
-  <app ng-app="mvp"></app>
-  After app directive
-  <!-- <script src="server.js"></script> -->
+  <app ng-app="mvp" ng-controller="appCtrl"></app>
 </body>
 </html>
