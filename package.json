@@ -1,0 +1,25 @@
+{
+  "name": "hrr23-mvp-andrewlam",
+  "version": "1.0.0",
+  "description": "- pull challenger league data from riotgames api - get all challenger player champion statistics - angular front end - mongo database",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Drewclam/hrr23-mvp-andrewlam.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Drewclam/hrr23-mvp-andrewlam/issues"
+  },
+  "homepage": "https://github.com/Drewclam/hrr23-mvp-andrewlam#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "node": "0.0.0"
+  }
+}
