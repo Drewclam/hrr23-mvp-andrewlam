@@ -20,6 +20,8 @@
   "homepage": "https://github.com/Drewclam/hrr23-mvp-andrewlam#readme",
   "dependencies": {
     "express": "^4.15.2",
+    "mongodb": "^2.2.26",
+    "mongoose": "^4.9.7",
     "node": "0.0.0"
   }
 }
