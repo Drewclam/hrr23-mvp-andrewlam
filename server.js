@@ -12,10 +12,8 @@ mvpConnection.once('open', function() {
 
 var port = 8080;
 
-
-
-// app.use(express.static());
-// app.use(express.static('public'))
+app.use(express.static('./'))
+app.use(express.static('./client'));
 
 // routes
 app.get('/get', requestHandler.methods.get);
