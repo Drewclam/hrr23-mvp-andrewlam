@@ -59,7 +59,24 @@ angular.module('mvp')
           parsed.pool[champ.id].played += champ.stats.totalSessionsPlayed;
         }
       });
+      var topPlayed = '';
+      var games = 0;
+      for (var champId in parsed.pool) {
+        if (parsed.pool[champId].played > games) {
+          topPlayed = champId;
+        }
+      }
+      parsed.topPlayed = topPlayed;
       return parsed;
+    })
+    .then((result) => {
+      $http.get(`https://global.api.riotgames.com/api/lol/static-data/NA/v1.2/champion/${result.topPlayed}?${requestParams.apiKey}`).then((response) => {
+        console.log('translated id to name', response);
+        result.topPlayed = response.data.name + ' ' + response.data.title;
+      }).catch((err) => {
+        console.log('errro translating id to name');
+      });
+      return result;
     })
     .then((result) => {
       // make post request to server

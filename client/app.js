@@ -22,9 +22,8 @@ angular.module('mvp')
     $scope.players = players;
   };
 
-  $scope.deletePlayer = (player) => {
-    player = player.player.username;
-    console.log(player);
+  $scope.deletePlayer = (element) => {
+    player = element.player.username;
     leagueData.deletePlayer(player);
   }
 })
