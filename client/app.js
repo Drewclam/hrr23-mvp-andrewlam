@@ -11,12 +11,17 @@ angular.module('mvp')
     $scope.entries = entries;
   };
 
-  $scope.onClickGetChamps = leagueData.getChampData;
+  $scope.onClickGetChamps = (player) => {
+    leagueData.getChampData(player, $scope.saveChampData);
+  };
   $scope.saveChampData = (champs) => {
     $scope.champs = champs;
+    leagueData.getSavedPlayers($scope.displaySavedPlayers);
   };
 
-  $scope.onClickGetSavedPlayers = leagueData.getSavedPlayers;
+  $scope.onClickGetSavedPlayers = () => {
+    leagueData.getSavedPlayers($scope.displaySavedPlayers);
+  };
   $scope.displaySavedPlayers = (players) => {
     console.log('display saved players' , players);
     $scope.players = players;
@@ -25,6 +30,7 @@ angular.module('mvp')
   $scope.deletePlayer = (element) => {
     player = element.player.username;
     leagueData.deletePlayer(player);
+    leagueData.getSavedPlayers($scope.displaySavedPlayers);
   }
 })
 

@@ -170,8 +170,10 @@ div.init {
   position: relative;
   top: 0;
   left: 1em;
+  width: 8em;
   z-index: 999;
   cursor: pointer;
+  border: 1px solid;
   /*float:left;*/
 }
 

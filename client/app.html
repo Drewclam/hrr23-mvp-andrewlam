@@ -11,17 +11,17 @@
   </div>
   <br/>
   <div class="entries">
-    <div ng-repeat="entry in entries" ng-click="onClickGetChamps(saveChampData)">
-      <div class="entrywrapper">
+    <div ng-repeat="entry in entries" >
+      <div class="entrywrapper" ng-click="onClickGetChamps(this)">
         <div class="entryname">{{entry.name}} </div>
         <div class="entrywins">Wins: {{entry.wins}}</div>
         <div class="entrylosses">Losses: {{entry.losses}}</div>
       </div>
     </div>
   </div>
-  <div ng-repeat="player in players" ng-click="deletePlayer(this)">
-    <div class="saved">
-      {{player.username}}
+  <div ng-repeat="player in players" >
+    <div class="saved" ng-click="deletePlayer(this)">
+      {{player.username}} : {{player.topPlayed}}
     </div>
   </div>
 </div>

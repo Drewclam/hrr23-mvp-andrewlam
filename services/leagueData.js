@@ -28,11 +28,11 @@ angular.module('mvp')
     });
   };
 
-  this.getChampData = function(callback) {
-    var id = this.entry.id;
-    var name = this.entry.name;
-    var wins = this.entry.wins;
-    var losses = this.entry.losses;
+  this.getChampData = function(player, callback) {
+    var id = player.entry.id;
+    var name = player.entry.name;
+    var wins = player.entry.wins;
+    var losses = player.entry.losses;
 
     $http.get(`https://na.api.riotgames.com/api/lol/NA/v1.3/stats/by-summoner/${id}/ranked?season=SEASON2017&${requestParams.apiKey}`)
     .then(function success(response) {
@@ -70,19 +70,21 @@ angular.module('mvp')
       return parsed;
     })
     .then((result) => {
-      $http.get(`https://global.api.riotgames.com/api/lol/static-data/NA/v1.2/champion/${result.topPlayed}?${requestParams.apiKey}`)
-      .then((response) => {
-        console.log('translated id to name', response);
-        result.topPlayed = response.data.name + ' ' + response.data.title;
-        return result;
-      }).then((result) => {
-        console.log('sending.... ', result);
-        $http.post(`http://localhost:8080/players`, JSON.stringify(result)).then((response) => {
-          console.log('successfully saved player');
-        }, (response) => {
-          console.log('error saving player', response);
-        });
-      })
+      (function() {
+        $http.get(`https://global.api.riotgames.com/api/lol/static-data/NA/v1.2/champion/${result.topPlayed}?${requestParams.apiKey}`)
+        .then((response) => {
+          console.log('translated id to name', response);
+          result.topPlayed = response.data.name + ' ' + response.data.title;
+          return result;
+        })
+        .then((result) => {
+          console.log('sending.... ', result);
+          $http.post(`http://localhost:8080/players`, JSON.stringify(result)).then((response) => {
+            console.log('successfully saved player');
+            callback();
+          });
+        })
+      })()
     })
     .catch((err) => {
       console.log('error!!!!');
@@ -90,6 +92,7 @@ angular.module('mvp')
   };
 
   this.getSavedPlayers = (callback) => {
+    console.log('getting saved players...');
     $http.get(`http://localhost:8080/players`)
     .then((res) => {
       var parsed = [];
@@ -98,6 +101,7 @@ angular.module('mvp')
         savedPlayer.username = player.username;
         savedPlayer.wins = player.wins;
         savedPlayer.losses = player.losses;
+        savedPlayer.topPlayed = player.topPlayed;
         parsed.push(savedPlayer);
       });
       return parsed;
