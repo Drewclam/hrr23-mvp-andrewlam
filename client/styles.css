@@ -9,6 +9,7 @@ div.parallax {
   left: 0;
   height: 100%;
   width: 100%;
+  padding: 0;
   background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0)), url('https://static.lolwallpapers.net/2016/01/Ashe-Fan-Art-2.jpg');
   /* parallax */
   background-size: cover;
@@ -123,7 +124,8 @@ div.init {
 }
 
 .entries {
-  background: url('http://orig12.deviantart.net/08a8/f/2012/296/5/2/katarina___the_sinister_blade_by_ignisamaterasu-d5iq3jh.png');
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)), url('http://orig12.deviantart.net/08a8/f/2012/296/5/2/katarina___the_sinister_blade_by_ignisamaterasu-d5iq3jh.png');
+  padding: 0;
   background-size: cover;
   /*background-attachment: fixed;*/
   background-position: center;
@@ -134,7 +136,7 @@ div.init {
   left: 0;
   width: 100%;
   height: 100%;
-  /*overflow: scroll;*/
+  overflow: auto;
   /*background-color: white;*/
   /*opacity: 0.25;*/
 }
@@ -144,11 +146,10 @@ div.init {
   height: 5em;
   width: 11em;
   left: 1em;
-  float: left;
+  /*float: left;*/
   cursor: pointer;
-
-  /*padding: 10px;*/
-  /*background-color: white;*/
+  /*overflow-x: scroll;*/
+  /*font-size: 12px;*/
 }
 .entrywrapper:hover {
   color: grey;
@@ -156,23 +157,25 @@ div.init {
 .entrywrapper:active {
   color: white;
 }
-.entryname {
+.scroll {
   position: absolute;
+  top: 0;
+  left: 0;
+  overflow: scroll;
+  height: 100%;
+  width: 30%;
+}
+.entry {
+  height: 3em;
+}
+.entryname {
+  position: relative;
   top: 1em;
   left: 3em;
-  text-align: center;
-}
-.entrywins {
-  position: absolute;
-  top: 3em;
-  left: 0;
-  /*text-align: center;*/
-}
-.entrylosses {
-  position: absolute;
-  top: 3em;
-  left: 5em;
-  /*text-align: center;*/
+  width: 100%;
+  height: 5em;
+  text-align: left;
+  font-size: 18px;
 }
 
 
@@ -184,7 +187,6 @@ div.init {
   z-index: 999;
   cursor: pointer;
   border: 1px solid;
-  /*float:left;*/
 }
 
 

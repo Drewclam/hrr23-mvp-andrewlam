@@ -17,11 +17,14 @@
   </div>
 </div>
 <div class="entries">
-  <div ng-repeat="entry in entries" >
-    <div class="entrywrapper" ng-click="onClickGetChamps(this)">
-      <div class="entryname">{{entry.name}} </div>
-      <div class="entrywins">Wins: {{entry.wins}}</div>
-      <div class="entrylosses">Losses: {{entry.losses}}</div>
+  <div class="scroll">
+    <div class = "entry" ng-repeat="entry in entries" >
+      <div class="entrywrapper" ng-click="displayPlayer(this)">
+      <!-- ng-click="onClickGetChamps(this)" -->
+          <div class="entryname">
+            {{entry.name}} {{entry.wins / (entry.wins + entry.losses) | number: 2}}
+          </div>
+      </div>
     </div>
   </div>
 </div>

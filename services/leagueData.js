@@ -123,7 +123,51 @@ angular.module('mvp')
     .catch((err) => {
       console.log('error deleting player')
     })
-  }
+  };
+
+  this.displayPlayer = (player, callback) => {
+    var id = player.entry.id;
+    var name = player.entry.name;
+    var wins = player.entry.wins;
+    var losses = player.entry.losses;
+
+    $http.get(`https://na.api.riotgames.com/api/lol/NA/v1.3/stats/by-summoner/${id}/ranked?season=SEASON2017&${requestParams.apiKey}`)
+    .then(function success(response) {
+      console.log('success retrieving user data', response);
+      var parsed = {};
+      parsed.userId = id;
+      parsed.username = name.trim();
+      parsed.wins = wins;
+      parsed.losses = losses;
+      parsed.pool = {};
+      response.data.champions.forEach(function(champ) {
+        // if champion does not exist create it
+        if (!parsed.pool[champ.id]) {
+          var champion = {};
+          champion.id = champ.id;
+          champion.win = champ.stats.totalSessionsWon;
+          champion.loss = champ.stats.totalSessionsLost;
+          champion.played = champ.stats.totalSessionsPlayed;
+          parsed.pool[champ.id] = champion;
+        } else {
+          // aggregate stats
+          parsed.pool[champ.id].win += champ.stats.totalSessionsWon;
+          parsed.pool[champ.id].loss += champ.stats.totalSessionsLost;
+          parsed.pool[champ.id].played += champ.stats.totalSessionsPlayed;
+        }
+      });
+      var topPlayed = '';
+      var games = 0;
+      for (var champId in parsed.pool) {
+        if (parsed.pool[champId].played > games) {
+          topPlayed = champId;
+        }
+      }
+      parsed.topPlayed = topPlayed;
+      console.log('passing ', parsed);
+      callback(parsed);
+    });
+  };
 })
 
 

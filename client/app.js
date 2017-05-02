@@ -3,7 +3,7 @@ angular.module('mvp')
 .controller('appCtrl', function($scope, $http, leagueData) {
 
   $scope.onClickGetTier = () => {
-    $scope.state = !$scope.state;
+    // $scope.state = !$scope.state;
     leagueData.getTierData($scope.displayTierData);
   };
 
@@ -31,7 +31,13 @@ angular.module('mvp')
     player = element.player.username;
     leagueData.deletePlayer(player);
     leagueData.getSavedPlayers($scope.displaySavedPlayers);
-  }
+  };
+
+  $scope.displayPlayer = (player) => {
+    leagueData.displayPlayer(player, (data) => {
+      console.log('displaying ', data);
+    });
+  };
 })
 
 .directive('app', function() {
