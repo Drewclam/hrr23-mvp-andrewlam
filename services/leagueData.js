@@ -12,7 +12,6 @@ angular.module('mvp')
     $http.get(`https://na.api.riotgames.com/api/lol/NA/v2.5/league/challenger?${requestParams.type}&${requestParams.apiKey}`)
     .then(function success(response) {
       console.log('success retrieving data');
-      // parse tier data
       var parsed = {};
       response.data.entries.forEach(function(entry) {
         var player = {};
@@ -23,13 +22,11 @@ angular.module('mvp')
         player.losses = entry.losses;
         parsed[entry.playerOrTeamName] = player;
       });
-      //
-      console.log('parsed data from getTierData', parsed);
       callback(parsed);
     }, function error(response) {
       console.log('error retrieving data');
     });
-  }
+  };
 
   this.getChampData = function(callback) {
     var id = this.entry.id;
@@ -76,6 +73,27 @@ angular.module('mvp')
     .catch((err) => {
       console.log('error!!!!');
     })
+  };
+
+  this.getSavedPlayers = (callback) => {
+    $http.get(`http://localhost:8080/players`)
+    .then((res) => {
+      var parsed = [];
+      res.data.forEach((player) => {
+        var savedPlayer = {};
+        savedPlayer.username = player.username;
+        savedPlayer.wins = player.wins;
+        savedPlayer.losses = player.losses;
+        parsed.push(savedPlayer);
+      });
+      return parsed;
+    })
+    .then((res) => {
+      callback(res);
+    })
+    .catch((err) => {
+      console.log('error retrieving saved players');
+    });
   }
 })
 

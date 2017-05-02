@@ -1,16 +1,23 @@
 angular.module('mvp')
 
 .controller('appCtrl', function($scope, $http, leagueData) {
+
   $scope.onClickGetTier = leagueData.getTierData;
-  $scope.displayTierData = function(entries) {
+  $scope.displayTierData = (entries) => {
     $scope.entries = entries;
   };
-  $scope.onClickGetChamps = leagueData.getChampData;
-  $scope.saveChampData = function(champs) {
 
+  $scope.onClickGetChamps = leagueData.getChampData;
+  $scope.saveChampData = (champs) => {
     $scope.champs = champs;
-    console.log(champs);
   };
+
+  $scope.onClickGetSavedPlayers = leagueData.getSavedPlayers;
+  $scope.displaySavedPlayers = (players) => {
+    console.log('display saved players' , players);
+    $scope.players = players;
+  }
+
 })
 
 .directive('app', function() {

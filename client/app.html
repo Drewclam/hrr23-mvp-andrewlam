@@ -1,7 +1,7 @@
 <div class=background>
   <div class=navbar>
     <button ng-click="onClickGetTier(displayTierData)">Get Tier Data</button>
-    <button>Show Saved Players</button>
+    <button ng-click="onClickGetSavedPlayers(displaySavedPlayers)">Show Saved Players</button>
     <button>Delete A Player</button>
     <button>Search Players</button>
   </div>
@@ -10,4 +10,5 @@
   </div> -->
   <br/>
   <div ng-repeat="entry in entries" ng-click="onClickGetChamps(saveChampData)">{{entry}}</div>
+  <div ng-repeat="player in players">{{player}}</div>
 </div>
