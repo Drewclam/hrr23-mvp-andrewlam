@@ -2,11 +2,14 @@ angular.module('mvp')
 
 .controller('appCtrl', function($scope, leagueData) {
   console.log('inside appCtrl ', $scope);
-  $scope.onClick = leagueData.getTierData;
+  $scope.onClickGetTier = leagueData.getTierData;
   $scope.displayTierData = function(entries) {
-    // once getTierData gets and parses:
-    console.log('display data');
     $scope.entries = entries;
+  }
+  $scope.onClickGetChamps = leagueData.getChampData;
+  $scope.displayChampData = function(champs) {
+    $scope.champs = champs;
+    console.log(champs);
   }
 })
 

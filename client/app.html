@@ -1,6 +1,6 @@
 <div>
   Inside App directive
-  <button ng-click="onClick(displayTierData)">Get Tier Data</button>
+  <button ng-click="onClickGetTier(displayTierData)">Get Tier Data</button>
   <br/>
-  <tier-entry ng-repeat="entry in entries"> {{entry}}</tier-entry>
+  <div ng-repeat="entry in entries" ng-click="onClickGetChamps(displayChampData)"> {{entry}}</div>
 </div>

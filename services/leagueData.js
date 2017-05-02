@@ -16,6 +16,7 @@ angular.module('mvp')
       var parsed = {};
       response.data.entries.forEach(function(entry) {
         var player = {};
+        player.id = entry.playerOrTeamId;
         player.name = entry.playerOrTeamName;
         player.leaguePoints = entry.leaguePoints;
         player.wins = entry.wins;
@@ -27,6 +28,34 @@ angular.module('mvp')
       callback(parsed);
     }, function error(response) {
       console.log('error retrieving data');
+    });
+  }
+
+  this.getChampData = function(callback) {
+    var id = this.entry.id;
+    $http.get(`https://na.api.riotgames.com/api/lol/NA/v1.3/stats/by-summoner/${id}/ranked?season=SEASON2017&${requestParams.apiKey}`)
+    .then(function success(response) {
+      console.log('success retrieving user data', response);
+      var parsed = {};
+      response.data.champions.forEach(function(champ) {
+        // if champion does not exist create it
+        if (!parsed[champ.id]) {
+          var champion = {};
+          champion.id = champ.id;
+          champion.win = champ.stats.totalSessionsWon;
+          champion.loss = champ.stats.totalSessionsLost;
+          champion.played = champ.stats.totalSessionsPlayed;
+          parsed[champ.id] = champion;
+        } else {
+          // aggregate stats
+          parsed[champ.id].win += champ.stats.totalSessionsWon;
+          parsed[champ.id].loss += champ.stats.totalSessionsLost;
+          parsed[champ.id].played += champ.stats.totalSessionsPlayed;
+        }
+      });
+      callback(parsed);
+    }, function error(response) {
+      console.log('error retrieving user data');
     });
   }
 })
