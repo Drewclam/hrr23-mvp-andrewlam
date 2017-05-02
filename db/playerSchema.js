@@ -5,6 +5,7 @@ var PlayerSchema = new mongoose.Schema({
   username: String,
   wins: Number,
   losses: Number,
+  topPlayed: String
   // pool: String
 });
 

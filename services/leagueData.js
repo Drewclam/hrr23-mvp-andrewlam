@@ -69,23 +69,24 @@ angular.module('mvp')
       parsed.topPlayed = topPlayed;
       return parsed;
     })
+    // .then((result) => {
+
+      // return result;
+    // })
     .then((result) => {
-      $http.get(`https://global.api.riotgames.com/api/lol/static-data/NA/v1.2/champion/${result.topPlayed}?${requestParams.apiKey}`).then((response) => {
+      $http.get(`https://global.api.riotgames.com/api/lol/static-data/NA/v1.2/champion/${result.topPlayed}?${requestParams.apiKey}`)
+      .then((response) => {
         console.log('translated id to name', response);
         result.topPlayed = response.data.name + ' ' + response.data.title;
-      }).catch((err) => {
-        console.log('errro translating id to name');
-      });
-      return result;
-    })
-    .then((result) => {
-      // make post request to server
-      console.log('sending.... ', result);
-      $http.post(`http://localhost:8080/players`, JSON.stringify(result)).then((response) => {
-        console.log('successfully saved player');
-      }, (response) => {
-        console.log('error saving player', response);
-      });
+        return result;
+      }).then((result) => {
+        console.log('sending.... ', result);
+        $http.post(`http://localhost:8080/players`, JSON.stringify(result)).then((response) => {
+          console.log('successfully saved player');
+        }, (response) => {
+          console.log('error saving player', response);
+        });
+      })
     })
     .catch((err) => {
       console.log('error!!!!');

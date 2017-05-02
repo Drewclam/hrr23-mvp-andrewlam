@@ -18,7 +18,7 @@ var methods = {
 
   post: function(req, res) { // create a new player entry
     var username = req.body.username;
-    console.log('post handler: ', req.body);
+    console.log('post handler: ', req.body.topPlayed);
     Player.findOne({
       username: username
     })
@@ -33,6 +33,7 @@ var methods = {
         newPlayer.username = req.body.username;
         newPlayer.wins = req.body.wins;
         newPlayer.losses = req.body.losses;
+        newPlayer.topPlayed = req.body.topPlayed;
         // newPlayer.pool = req.body.pool;
 
         newPlayer.save((err, player) => {
