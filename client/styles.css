@@ -85,6 +85,9 @@ div.init {
   opacity: 0.75;
   z-index: 100;
 }
+.init:hover {
+  cursor: default;
+}
 .title {
   font-size: 70px;
 }
@@ -96,8 +99,20 @@ div.init {
 }
 .tierbtn {
   position: absolute;
-  top: 15em;
-  left: 23em;
+  top: 10em;
+  left: 15em;
+  border: none;
+  text-transform: uppercase;
+  background-color: transparent;
+  /*background-color: #604311;*/
+  font-family: 'Slabo', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  outline: none;
+}
+.tierbtn:hover {
+  color: #adb8c6;
+  cursor: pointer;
 }
 
 .entries {
