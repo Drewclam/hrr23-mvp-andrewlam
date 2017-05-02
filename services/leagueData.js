@@ -39,7 +39,7 @@ angular.module('mvp')
       console.log('success retrieving user data', response);
       var parsed = {};
       parsed.userId = id;
-      parsed.username = name;
+      parsed.username = name.trim();
       parsed.wins = wins;
       parsed.losses = losses;
       parsed.pool = {};
@@ -115,6 +115,7 @@ angular.module('mvp')
   };
 
   this.deletePlayer = (username, callback) => {
+    username = username.trim();
     $http.delete(`http://localhost:8080/players/${username}`)
     .then((res) => {
       console.log('deleted player successfully', res);

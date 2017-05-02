@@ -18,7 +18,6 @@ var methods = {
 
   post: function(req, res) { // create a new player entry
     var username = req.body.username;
-    console.log('post handler: ', req.body.topPlayed);
     Player.findOne({
       username: username
     })
