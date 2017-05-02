@@ -1,5 +1,6 @@
 body {
   font-family: 'Slabo 27px', serif;
+  user-select: none;
 }
 div.background {
   position: absolute;
@@ -7,21 +8,22 @@ div.background {
   left: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url('http://lolwp.com/wp-content/uploads/Teemo-wallpaper-by-sovietpancake.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0)), url('https://static.lolwallpapers.net/2016/01/Ashe-Fan-Art-2.jpg');
   background-size: cover;
 }
-
+/*'http://lolwp.com/wp-content/uploads/Teemo-wallpaper-by-sovietpancake.jpg'*/
 .navbar {
   position: absolute;
-  top: 2em;
+  top: 9em;
   left: 0;
   /*background-color: white;*/
   width: 100%;
   height: 3.5em;
+  /*z-index: -1;*/
 }
 .savePlayersbtn {
   position: relative;
-  top: 7em;
+  /*top: 7em;*/
   left: 35em;
   border: none;
   text-transform: uppercase;
@@ -38,7 +40,7 @@ div.background {
 }
 .deletePlayerbtn {
   position: relative;
-  top: 7em;
+  /*top: 7em;*/
   left: 37em;
   border: none;
   text-transform: uppercase;
@@ -55,7 +57,7 @@ div.background {
 }
 .searchPlayersbtn {
   position: relative;
-  top: 7em;
+  /*top: 7em;*/
   left: 39em;
   height: 3em;
   border: none;
@@ -118,8 +120,8 @@ div.init {
 .entries {
   display: inline;
   position: absolute;
-  top: 20em;
-  left: 15em;
+  top: 15em;
+  left: 13em;
   width: 70em;
   height: 25em;
   overflow: scroll;
@@ -133,8 +135,16 @@ div.init {
   width: 11em;
   left: 1em;
   float: left;
+  cursor: pointer;
+
   /*padding: 10px;*/
   /*background-color: white;*/
+}
+.entrywrapper:hover {
+  color: grey;
+}
+.entrywrapper:active {
+  color: white;
 }
 .entryname {
   position: absolute;
@@ -156,7 +166,14 @@ div.init {
 }
 
 
-
+.saved {
+  position: relative;
+  top: 0;
+  left: 1em;
+  z-index: 999;
+  cursor: pointer;
+  /*float:left;*/
+}
 
 
 

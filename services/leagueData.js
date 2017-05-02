@@ -69,10 +69,6 @@ angular.module('mvp')
       parsed.topPlayed = topPlayed;
       return parsed;
     })
-    // .then((result) => {
-
-      // return result;
-    // })
     .then((result) => {
       $http.get(`https://global.api.riotgames.com/api/lol/static-data/NA/v1.2/champion/${result.topPlayed}?${requestParams.apiKey}`)
       .then((response) => {
