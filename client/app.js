@@ -16,8 +16,10 @@ angular.module('mvp')
   $scope.displaySavedPlayers = (players) => {
     console.log('display saved players' , players);
     $scope.players = players;
+  };
+  $scope.test = () => {
+    console.log('tes');
   }
-
 })
 
 .directive('app', function() {

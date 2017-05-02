@@ -18,7 +18,7 @@ div.init {
   left: 25em;
   width: 50%;
   height: 50%;
-  /*background-color:#2e2b59;*/
+  transition: width 2s, height 4s;
   opacity: 0.75;
 }
 .title {
@@ -35,3 +35,50 @@ div.init {
   top: 15em;
   left: 23em;
 }
+
+.entries {
+  display: inline;
+  position: absolute;
+  top: 15em;
+  left: 15em;
+  width: 17em;
+  height: 25em;
+  overflow: scroll;
+  background-color: white;
+  opacity: 0.25;
+}
+.entrywrapper {
+  display: inline-flex;
+  position: relative;
+  height: 5em;
+  width: 11em;
+  /*padding: 10px;*/
+  /*background-color: white;*/
+}
+.entryname {
+  position: absolute;
+  top: 1em;
+  left: 3em;
+  text-align: center;
+}
+.entrywins {
+  position: absolute;
+  top: 3em;
+  left: 0;
+  /*text-align: center;*/
+}
+.entrylosses {
+  position: absolute;
+  top: 3em;
+  left: 5em;
+  /*text-align: center;*/
+}
+
+
+
+
+
+
+
+
+

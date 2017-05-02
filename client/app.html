@@ -5,11 +5,19 @@
     <button>Search Players</button>
   </div>
   <div class=init>
-    <span class="title">Search Challenger Tier</span>
+    <span class="title animated bounceInDown">Search Challenger Tier</span>
     <span class="subtitle">See who is currently ranks at Challenger!</span>
     <button class="tierbtn" ng-click="onClickGetTier(displayTierData)">Get Tier Data</button>
   </div>
   <br/>
-  <div ng-repeat="entry in entries" ng-click="onClickGetChamps(saveChampData)">{{entry}}</div>
+  <div class="entries">
+    <div ng-repeat="entry in entries" ng-click="onClickGetChamps(saveChampData)">
+      <div class="entrywrapper">
+        <div class="entryname">{{entry.name}} </div>
+        <div class="entrywins">Wins: {{entry.wins}}</div>
+        <div class="entrylosses">Losses: {{entry.losses}}</div>
+      </div>
+    </div>
+  </div>
   <div ng-repeat="player in players">{{player}}</div>
 </div>
