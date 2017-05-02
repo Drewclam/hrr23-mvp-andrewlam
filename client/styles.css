@@ -1,15 +1,20 @@
 body {
   font-family: 'Slabo 27px', serif;
   user-select: none;
+  height: 100%;
 }
-div.background {
+div.parallax {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0)), url('https://static.lolwallpapers.net/2016/01/Ashe-Fan-Art-2.jpg');
+  /* parallax */
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 /*'http://lolwp.com/wp-content/uploads/Teemo-wallpaper-by-sovietpancake.jpg'*/
 .navbar {
@@ -118,13 +123,18 @@ div.init {
 }
 
 .entries {
+  background: url('http://orig12.deviantart.net/08a8/f/2012/296/5/2/katarina___the_sinister_blade_by_ignisamaterasu-d5iq3jh.png');
+  background-size: cover;
+  /*background-attachment: fixed;*/
+  background-position: center;
+  background-repeat: no-repeat;
   display: inline;
   position: absolute;
-  top: 15em;
-  left: 13em;
-  width: 70em;
-  height: 25em;
-  overflow: scroll;
+  top: 48.5em;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*overflow: scroll;*/
   /*background-color: white;*/
   /*opacity: 0.25;*/
 }

@@ -1,4 +1,4 @@
-<div class=background>
+<div class=parallax>
   <div class=navbar>
     <button class="savePlayersbtn" ng-click="onClickGetSavedPlayers(displaySavedPlayers)">Saved</button>
     <button class="deletePlayerbtn">Delete</button>
@@ -10,18 +10,18 @@
     <button class="tierbtn" ng-click="onClickGetTier()">Get Tier Data</button>
   </div>
   <br/>
-  <div class="entries">
-    <div ng-repeat="entry in entries" >
-      <div class="entrywrapper" ng-click="onClickGetChamps(this)">
-        <div class="entryname">{{entry.name}} </div>
-        <div class="entrywins">Wins: {{entry.wins}}</div>
-        <div class="entrylosses">Losses: {{entry.losses}}</div>
-      </div>
-    </div>
-  </div>
   <div ng-repeat="player in players" >
     <div class="saved" ng-click="deletePlayer(this)">
       {{player.username}} : {{player.topPlayed}}
+    </div>
+  </div>
+</div>
+<div class="entries">
+  <div ng-repeat="entry in entries" >
+    <div class="entrywrapper" ng-click="onClickGetChamps(this)">
+      <div class="entryname">{{entry.name}} </div>
+      <div class="entrywins">Wins: {{entry.wins}}</div>
+      <div class="entrylosses">Losses: {{entry.losses}}</div>
     </div>
   </div>
 </div>
