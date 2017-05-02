@@ -1,5 +1,4 @@
 var https = require('https');
-// var utils = require('./utils.js');
 var mongoose = require('mongoose');
 var Player = require('./db/playerSchema');
 
@@ -18,20 +17,31 @@ var methods = {
   },
 
   post: function(req, res) { // create a new player entry
+    var username = req.body.username;
     console.log('post handler: ', req.body);
-    var newPlayer = new Player();
-
-    newPlayer.userId = req.body.userId;
-    newPlayer.username = req.body.username;
-    newPlayer.wins = req.body.wins;
-    newPlayer.losses = req.body.losses;
-    // newPlayer.pool = req.body.pool;
-
-    newPlayer.save((err, player) => {
+    Player.findOne({
+      username: username
+    })
+    .exec((err, player) => {
       if (err) {
-        res.send('error creating player ');
-      } else {
-        res.send('created player: ');
+        res.send('error finding player while creating');
+      }
+      if (!player) {
+        var newPlayer = new Player();
+
+        newPlayer.userId = req.body.userId;
+        newPlayer.username = req.body.username;
+        newPlayer.wins = req.body.wins;
+        newPlayer.losses = req.body.losses;
+        // newPlayer.pool = req.body.pool;
+
+        newPlayer.save((err, player) => {
+          if (err) {
+            res.send('error creating player ');
+          } else {
+            res.send('created player: ');
+          }
+        });
       }
     });
   },
