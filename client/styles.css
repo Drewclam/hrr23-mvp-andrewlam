@@ -11,6 +11,43 @@ div.background {
   background-size: cover;
 }
 
+.navbar {
+  position: absolute;
+  top: 2em;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  height: 3.5em;
+}
+.savePlayersbtn {
+  position: relative;
+  top: 2em;
+  left: 43em;
+  border: none;
+  font-family: 'Slabo 27px', serif;
+}
+.deletePlayerbtn {
+  position: relative;
+  top: 2em;
+  left: 47em;
+  border: none;
+  font-family: 'Slabo 27px', serif;
+}
+.searchPlayersbtn {
+  position: relative;
+  top: 2em;
+  left: 52em;
+  height: 3em;
+  border: none;
+  text-transform: uppercase;
+  /*background-color: transparent;*/
+  font-family: 'Slabo', serif;
+  font-size: 14px;
+  outline: none;
+}
+
+
+
 
 div.init {
   position: relative;
@@ -20,6 +57,7 @@ div.init {
   height: 50%;
   transition: width 2s, height 4s;
   opacity: 0.75;
+  z-index: 100;
 }
 .title {
   font-size: 70px;
@@ -39,19 +77,21 @@ div.init {
 .entries {
   display: inline;
   position: absolute;
-  top: 15em;
+  top: 20em;
   left: 15em;
-  width: 17em;
+  width: 70em;
   height: 25em;
   overflow: scroll;
   background-color: white;
-  opacity: 0.25;
+  /*opacity: 0.25;*/
 }
 .entrywrapper {
   display: inline-flex;
   position: relative;
   height: 5em;
   width: 11em;
+  left: 1em;
+  float: left;
   /*padding: 10px;*/
   /*background-color: white;*/
 }
