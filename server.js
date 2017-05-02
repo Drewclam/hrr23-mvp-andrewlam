@@ -16,7 +16,8 @@ app.use(express.static('./'))
 app.use(express.static('./client'));
 
 // routes
-app.get('/get', requestHandler.methods.get);
+app.get('/players', requestHandler.methods.get);
+app.post('/players', requestHandler.methods.post);
 
 
 
