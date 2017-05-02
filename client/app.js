@@ -2,7 +2,11 @@ angular.module('mvp')
 
 .controller('appCtrl', function($scope, $http, leagueData) {
 
-  $scope.onClickGetTier = leagueData.getTierData;
+  $scope.onClickGetTier = () => {
+    $scope.state = !$scope.state;
+    leagueData.getTierData($scope.displayTierData);
+  };
+
   $scope.displayTierData = (entries) => {
     $scope.entries = entries;
   };
@@ -17,8 +21,11 @@ angular.module('mvp')
     console.log('display saved players' , players);
     $scope.players = players;
   };
-  $scope.test = () => {
-    console.log('tes');
+
+  $scope.deletePlayer = (player) => {
+    player = player.player.username;
+    console.log(player);
+    leagueData.deletePlayer(player);
   }
 })
 

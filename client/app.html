@@ -4,10 +4,10 @@
     <button class="deletePlayerbtn">Delete</button>
     <button class="searchPlayersbtn">Search</button>
   </div>
-  <div class=init>
-    <span class="title animated bounceInDown">Search Challenger Tier</span>
+  <div class=init ng-show="!state">
+    <span class="title">Search Challenger Tier</span>
     <span class="subtitle">See who is currently ranked in Challenger!</span>
-    <button class="tierbtn" ng-click="onClickGetTier(displayTierData)">Get Tier Data</button>
+    <button class="tierbtn" ng-click="onClickGetTier()">Get Tier Data</button>
   </div>
   <br/>
   <div class="entries">
@@ -19,5 +19,5 @@
       </div>
     </div>
   </div>
-  <div ng-repeat="player in players">{{player}}</div>
+  <div ng-repeat="player in players" ng-click="deletePlayer(this)">{{player}}</div>
 </div>

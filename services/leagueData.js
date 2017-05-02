@@ -94,6 +94,16 @@ angular.module('mvp')
     .catch((err) => {
       console.log('error retrieving saved players');
     });
+  };
+
+  this.deletePlayer = (username, callback) => {
+    $http.delete(`http://localhost:8080/players/${username}`)
+    .then((res) => {
+      console.log('deleted player successfully', res);
+    })
+    .catch((err) => {
+      console.log('error deleting player')
+    })
   }
 })
 
