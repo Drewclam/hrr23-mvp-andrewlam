@@ -1,13 +1,14 @@
 <div class=background>
   <div class=navbar>
-    <button ng-click="onClickGetTier(displayTierData)">Get Tier Data</button>
     <button ng-click="onClickGetSavedPlayers(displaySavedPlayers)">Show Saved Players</button>
     <button>Delete A Player</button>
     <button>Search Players</button>
   </div>
- <!--  <div class=init>
-    Inside App directive
-  </div> -->
+  <div class=init>
+    <span class="title">Search Challenger Tier</span>
+    <span class="subtitle">See who is currently ranks at Challenger!</span>
+    <button class="tierbtn" ng-click="onClickGetTier(displayTierData)">Get Tier Data</button>
+  </div>
   <br/>
   <div ng-repeat="entry in entries" ng-click="onClickGetChamps(saveChampData)">{{entry}}</div>
   <div ng-repeat="player in players">{{player}}</div>

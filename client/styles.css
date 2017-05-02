@@ -1,19 +1,37 @@
+body {
+  font-family: 'Slabo 27px', serif;
+}
 div.background {
   position: absolute;
+  top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://lolwp.com/wp-content/uploads/Teemo-wallpaper-by-sovietpancake.jpg');
-
-  /*background-image: url('http://lolwp.com/wp-content/uploads/Teemo-wallpaper-by-sovietpancake.jpg');*/
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url('http://lolwp.com/wp-content/uploads/Teemo-wallpaper-by-sovietpancake.jpg');
   background-size: cover;
 }
 
+
 div.init {
   position: relative;
-  top: 8em;
+  top: 13em;
   left: 25em;
   width: 50%;
   height: 50%;
-  background-color:#2e2b59;
+  /*background-color:#2e2b59;*/
   opacity: 0.75;
+}
+.title {
+  font-size: 70px;
+}
+.subtitle {
+  font-size: 25px;
+  position: absolute;
+  top: 4em;
+  left: 4em;
+}
+.tierbtn {
+  position: absolute;
+  top: 15em;
+  left: 23em;
 }
