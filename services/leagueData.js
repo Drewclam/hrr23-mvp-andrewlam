@@ -9,7 +9,7 @@ angular.module('mvp')
   };
 
   this.getTierData = function(callback) {
-    $http.get(requestParams.url + '?' + requestParams.type + '&' + requestParams.apiKey)
+    $http.get(`https://na.api.riotgames.com/api/lol/NA/v2.5/league/challenger?${requestParams.type}&${requestParams.apiKey}`)
     .then(function success(response) {
       console.log('success retrieving data');
       // parse tier data
