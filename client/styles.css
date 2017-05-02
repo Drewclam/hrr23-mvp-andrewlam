@@ -181,22 +181,24 @@ div.init {
 
 .info {
   position: absolute;
-  bottom: 19em;
-  right: 15em;
+  bottom: 15em;
+  right: 16em;
   height: 25em;
   width: 50%;
   /*background-color: white;*/
+  text-align: center;
+  cursor: default;
 }
 .infoName {
   position: relative;
   top: 2em;
-  left: 6em;
+  left: -2.25em;
   font-size: 35px;
 }
 .infoWins {
   position: relative;
   top: 3em;
-  left: 7em;
+  left: -2.25em;
   font-size: 25px;
 }
 /*.infoLosses {
@@ -208,13 +210,13 @@ div.init {
 .infoRatio {
   position: relative;
   top: 3.5em;
-  left: 8em;
+  left: -2.25em;
   font-size: 25px;
 }
 .infoTopPlayed {
   position: relative;
   top: 8em;
-  left: 5em;
+  left: -2.25em;
   font-size: 25px;
 }
 

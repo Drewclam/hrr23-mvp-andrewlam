@@ -29,10 +29,10 @@ angular.module('mvp')
   };
 
   this.getChampData = function(player, callback) {
-    var id = player.entry.id;
-    var name = player.entry.name;
-    var wins = player.entry.wins;
-    var losses = player.entry.losses;
+    var id = player.info.userId;
+    var name = player.info.username;
+    var wins = player.info.wins;
+    var losses = player.info.losses;
 
     $http.get(`https://na.api.riotgames.com/api/lol/NA/v1.3/stats/by-summoner/${id}/ranked?season=SEASON2017&${requestParams.apiKey}`)
     .then(function success(response) {
@@ -67,6 +67,7 @@ angular.module('mvp')
         }
       }
       parsed.topPlayed = topPlayed;
+      console.log('hello');
       return parsed;
     })
     .then((result) => {
@@ -84,7 +85,7 @@ angular.module('mvp')
             callback();
           });
         })
-      })()
+      })();
     })
     .catch((err) => {
       console.log('error!!!!');

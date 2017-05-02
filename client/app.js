@@ -12,6 +12,7 @@ angular.module('mvp')
   };
 
   $scope.onClickGetChamps = (player) => {
+    console.log('hello', player);
     leagueData.getChampData(player, $scope.saveChampData);
   };
   $scope.saveChampData = (champs) => {
@@ -37,6 +38,9 @@ angular.module('mvp')
     leagueData.displayPlayer(player, (data) => {
       console.log('displaying ', data);
       $scope.info = data;
+      $scope.info.topPlayed = 'Most Played: ' + data.topPlayed;
+      $scope.info.winsLosses = 'Wins: ' + data.wins + '| Losses: ' + data.losses;
+      $scope.info.ratio = 'Win Ratio: ' + Math.round(data.wins / (data.wins + data.losses) * 100) / 100;
     });
   };
 })
