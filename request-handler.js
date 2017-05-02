@@ -23,6 +23,8 @@ var methods = {
 
     newPlayer.userId = req.body.userId;
     newPlayer.username = req.body.username;
+    newPlayer.wins = req.body.wins;
+    newPlayer.losses = req.body.losses;
     // newPlayer.pool = req.body.pool;
 
     newPlayer.save((err, player) => {
@@ -30,6 +32,24 @@ var methods = {
         res.send('error creating player ');
       } else {
         res.send('created player: ');
+      }
+    });
+  },
+
+  delete: (req, res) => {
+  },
+
+  getByUsername: (req, res) => {
+    var username = req.params.username;
+    // res.send('finding username ' + username);
+    Player.findOne({
+      username: username
+    })
+    .exec((err, player) => {
+      if (err) {
+        res.send('error finding player');
+      } else {
+        res.send(player);
       }
     });
   }

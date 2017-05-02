@@ -12,6 +12,7 @@ mvpConnection.once('open', function() {
 });
 
 var port = 8080;
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 app.use(express.static('./'))
@@ -19,8 +20,9 @@ app.use(express.static('./client'));
 
 // routes
 app.get('/players', requestHandler.methods.get);
+app.get('/players/:username', requestHandler.methods.getByUsername);
 app.post('/players', requestHandler.methods.post);
-
+app.delete('/players/:username', requestHandler.methods.delete);
 
 
 app.listen(port);

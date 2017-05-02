@@ -5,7 +5,7 @@ var PlayerSchema = new mongoose.Schema({
   username: String,
   wins: Number,
   losses: Number,
-  pool: String
+  // pool: String
 });
 
 module.exports = mongoose.model('Player', PlayerSchema);
