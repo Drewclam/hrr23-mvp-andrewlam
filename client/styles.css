@@ -15,35 +15,61 @@ div.background {
   position: absolute;
   top: 2em;
   left: 0;
-  background-color: white;
+  /*background-color: white;*/
   width: 100%;
   height: 3.5em;
 }
 .savePlayersbtn {
   position: relative;
-  top: 2em;
-  left: 43em;
+  top: 7em;
+  left: 35em;
   border: none;
-  font-family: 'Slabo 27px', serif;
+  text-transform: uppercase;
+  background-color: transparent;
+  /*background-color: #604311;*/
+  font-family: 'Slabo', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  outline: none;
+}
+.savePlayersbtn:hover {
+  color: #adb8c6;
+  cursor: pointer;
 }
 .deletePlayerbtn {
   position: relative;
-  top: 2em;
-  left: 47em;
+  top: 7em;
+  left: 37em;
   border: none;
-  font-family: 'Slabo 27px', serif;
+  text-transform: uppercase;
+  background-color: transparent;
+  /*background-color: #604311;*/
+  font-family: 'Slabo', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  outline: none;
+}
+.deletePlayerbtn:hover {
+  color: #adb8c6;
+  cursor: pointer;
 }
 .searchPlayersbtn {
   position: relative;
-  top: 2em;
-  left: 52em;
+  top: 7em;
+  left: 39em;
   height: 3em;
   border: none;
   text-transform: uppercase;
-  /*background-color: transparent;*/
-  font-family: 'Slabo', serif;
-  font-size: 14px;
+  background-color: transparent;
+  /*background-color: #604311;*/
+  font-family: 'Slabo', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
   outline: none;
+}
+.searchPlayersbtn:hover {
+  color: #adb8c6;
+  cursor: pointer;
 }
 
 
@@ -82,7 +108,7 @@ div.init {
   width: 70em;
   height: 25em;
   overflow: scroll;
-  background-color: white;
+  /*background-color: white;*/
   /*opacity: 0.25;*/
 }
 .entrywrapper {
