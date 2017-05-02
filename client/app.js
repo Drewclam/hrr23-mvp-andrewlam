@@ -1,13 +1,13 @@
 angular.module('mvp')
 
-.controller('appCtrl', function($scope, leagueData) {
-  console.log('inside appCtrl ', $scope);
+.controller('appCtrl', function($scope, $http, leagueData) {
   $scope.onClickGetTier = leagueData.getTierData;
   $scope.displayTierData = function(entries) {
     $scope.entries = entries;
   };
   $scope.onClickGetChamps = leagueData.getChampData;
-  $scope.displayChampData = function(champs) {
+  $scope.saveChampData = function(champs) {
+
     $scope.champs = champs;
     console.log(champs);
   };

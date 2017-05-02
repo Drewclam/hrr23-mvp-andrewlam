@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var requestHandler = require('./request-handler.js');
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 // make sure mongod is running in shell first!
 mongoose.connect('mongodb://localhost/mvpdb');
@@ -11,7 +12,8 @@ mvpConnection.once('open', function() {
 });
 
 var port = 8080;
-
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
 app.use(express.static('./'))
 app.use(express.static('./client'));
 

@@ -62,10 +62,25 @@ angular.module('mvp')
           parsed.pool[champ.id].played += champ.stats.totalSessionsPlayed;
         }
       });
-
-      callback(parsed);
-    }, function error(response) {
-      console.log('error retrieving user data');
-    });
+      return parsed;
+    })
+    .then((result) => {
+      // make post request to server
+      console.log('sending.... ', result);
+      $http.post(`http://localhost:8080/players`, JSON.stringify(result)).then((response) => {
+        console.log('successfully saved player');
+      }, (response) => {
+        console.log('error saving player', response);
+      });
+    })
+    .catch((err) => {
+      console.log('error!!!!');
+    })
   }
 })
+
+
+
+
+
+

@@ -3,8 +3,8 @@ var mongoose = require('mongoose');
 var PlayerSchema = new mongoose.Schema({
   userId: String,
   username: String,
-  wins: String,
-  losses: String,
+  wins: Number,
+  losses: Number,
   pool: String
 });
 
