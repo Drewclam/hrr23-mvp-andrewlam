@@ -164,8 +164,20 @@ angular.module('mvp')
         }
       }
       parsed.topPlayed = topPlayed;
-      console.log('passing ', parsed);
-      callback(parsed);
+      return parsed;
+    })
+    .then((result) => {
+      (function() {
+        $http.get(`https://global.api.riotgames.com/api/lol/static-data/NA/v1.2/champion/${result.topPlayed}?${requestParams.apiKey}`)
+        .then((response) => {
+          console.log('translated id to name', response);
+          result.topPlayed = response.data.name + ' ' + response.data.title;
+          return result;
+        })
+        .then((result) => {
+          callback(result);
+        })
+      })()
     });
   };
 })

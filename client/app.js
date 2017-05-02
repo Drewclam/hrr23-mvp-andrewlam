@@ -36,6 +36,7 @@ angular.module('mvp')
   $scope.displayPlayer = (player) => {
     leagueData.displayPlayer(player, (data) => {
       console.log('displaying ', data);
+      $scope.info = data;
     });
   };
 })

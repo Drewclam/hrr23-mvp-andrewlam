@@ -16,15 +16,25 @@
     </div>
   </div>
 </div>
-<div class="entries">
-  <div class="scroll">
-    <div class = "entry" ng-repeat="entry in entries" >
-      <div class="entrywrapper" ng-click="displayPlayer(this)">
-      <!-- ng-click="onClickGetChamps(this)" -->
-          <div class="entryname">
-            {{entry.name}} {{entry.wins / (entry.wins + entry.losses) | number: 2}}
-          </div>
+
+<div class="entryBg">
+  <div class="entries">
+    <div class="scroll">
+      <div class="entry" ng-repeat="entry in entries" >
+        <div class="entrywrapper" ng-click="displayPlayer(this)">
+        <!-- ng-click="onClickGetChamps(this)" -->
+            <div class="entryname">
+              {{entry.name}} {{entry.wins / (entry.wins + entry.losses) | number: 2}}
+            </div>
+        </div>
       </div>
+    </div>
+    <div class="info" ng-model="info">
+      <div class="infoName">{{info.username}}</div>
+      <div class="infoTopPlayed">Most Played: {{info.topPlayed}}</div>
+      <div class="infoWins">Wins: {{info.wins}} Losses: {{info.losses}}</div>
+      <!-- <div class="infoLosses">Losses: {{info.losses}}</div> -->
+      <div class="infoRatio">Win Ratio: {{info.wins / (info.wins + info.losses) | number: 2}}</div>
     </div>
   </div>
 </div>
