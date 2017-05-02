@@ -1,4 +1,19 @@
-body {
-  background-image: url('http://lolwp.com/wp-content/uploads/Teemo-wallpaper-by-sovietpancake.jpg');
+div.background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://lolwp.com/wp-content/uploads/Teemo-wallpaper-by-sovietpancake.jpg');
+
+  /*background-image: url('http://lolwp.com/wp-content/uploads/Teemo-wallpaper-by-sovietpancake.jpg');*/
   background-size: cover;
+}
+
+div.init {
+  position: relative;
+  top: 8em;
+  left: 25em;
+  width: 50%;
+  height: 50%;
+  background-color:#2e2b59;
+  opacity: 0.75;
 }
