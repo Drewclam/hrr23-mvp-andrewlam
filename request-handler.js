@@ -37,6 +37,18 @@ var methods = {
   },
 
   delete: (req, res) => {
+    var username = req.params.username;
+    Player.findOne({
+      username: username
+    })
+    .remove()
+    .exec((err, player) => {
+      if (err) {
+        res.send('error deleting player');
+      } else {
+        res.send(player);
+      }
+    });
   },
 
   getByUsername: (req, res) => {
