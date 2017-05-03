@@ -12,7 +12,8 @@ angular.module('mvp')
     $http.get(`https://na.api.riotgames.com/api/lol/NA/v2.5/league/challenger?${requestParams.type}&${requestParams.apiKey}`)
     .then(function success(response) {
       console.log('success retrieving data');
-      var parsed = {};
+      // var parsed = {};
+      var parsed = [];
       response.data.entries.forEach(function(entry) {
         var player = {};
         player.id = entry.playerOrTeamId;
@@ -20,9 +21,30 @@ angular.module('mvp')
         player.leaguePoints = entry.leaguePoints;
         player.wins = entry.wins;
         player.losses = entry.losses;
-        parsed[entry.playerOrTeamName] = player;
+        // parsed[entry.playerOrTeamName] = player;
+        parsed.push(player);
       });
-      callback(parsed);
+      var obj = {};
+      parsed = parsed.sort((a, b) => {
+        if (a.leaguePoints > b.leaguePoints) {
+          return -1;
+        }
+        if (a.leaguePoints < b.leaguePoints) {
+          return 1;
+        }
+        return 0;
+      }).forEach((entry) => {
+        var player = {};
+        player.id = entry.id;
+        player.name = entry.name;
+        player.leaguePoints = entry.leaguePoints;
+        player.wins = entry.wins;
+        player.losses = entry.losses;
+        obj[entry.name] = player;
+      });
+      // callback(parsed);
+      console.log(obj);
+      callback(obj);
     }, function error(response) {
       console.log('error retrieving data');
     });
