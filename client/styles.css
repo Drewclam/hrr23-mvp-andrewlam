@@ -39,8 +39,10 @@ div.parallax {
   font-size: 16px;
   font-weight: bold;
   outline: none;
+  transition: all .2s ease-in-out;
 }
 .savePlayersbtn:hover {
+  transform: scale(1.1);
   color: #adb8c6;
   cursor: pointer;
 }
@@ -56,8 +58,10 @@ div.parallax {
   font-size: 16px;
   font-weight: bold;
   outline: none;
+  transition: all .2s ease-in-out;
 }
 .deletePlayerbtn:hover {
+  transform: scale(1.1);
   color: #adb8c6;
   cursor: pointer;
 }
@@ -74,8 +78,10 @@ div.parallax {
   font-size: 16px;
   font-weight: bold;
   outline: none;
+  transition: all .2s ease-in-out;
 }
 .searchPlayersbtn:hover {
+  transform: scale(1.1);
   color: #adb8c6;
   cursor: pointer;
 }
@@ -243,14 +249,34 @@ div.init {
   font-size: 25px;
 }
 
+.savedWrap {
+  position: absolute;
+  top: 5em;
+  right: 3em;
+  height: 89%;
+  /*background-color: white;*/
+}
 .saved {
+  font-family: 'Slabo';
+  font-size: 18px;
   position: relative;
+  display: inline-flex;
   top: 0;
-  left: 1em;
+  left: 0em;
   width: 8em;
+  height: 100%;
   z-index: 999;
   cursor: pointer;
-  border: 1px solid;
+  text-align: center;
+  padding: 5px;
+  transition: all .2s ease-in-out;
+}
+.saved:hover {
+  transform: scale(1.1);
+  color: #6294e5;
+}
+.saved:active {
+  color: white;
 }
 
 
