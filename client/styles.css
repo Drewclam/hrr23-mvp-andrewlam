@@ -46,6 +46,9 @@ div.parallax {
   color: #adb8c6;
   cursor: pointer;
 }
+.savePlayersbtn:active {
+  color: #50b3f4;
+}
 .deletePlayerbtn {
   position: relative;
   /*top: 7em;*/
@@ -64,6 +67,9 @@ div.parallax {
   transform: scale(1.1);
   color: #adb8c6;
   cursor: pointer;
+}
+.deletePlayerbtn:active {
+  color: #50b3f4;
 }
 .searchPlayersbtn {
   position: relative;
@@ -84,6 +90,9 @@ div.parallax {
   transform: scale(1.1);
   color: #adb8c6;
   cursor: pointer;
+}
+.searchPlayersbtn:active {
+  color: #50b3f4;
 }
 
 
@@ -134,7 +143,7 @@ div.init {
   /*animation-play-state: running;*/
   /*animation-duration: 0.25s;*/
   transform: scale(1.1);
-  color: #ffc9a0;
+  color: #e5a840;
   cursor: pointer;
 }
 .tierbtn:active {
